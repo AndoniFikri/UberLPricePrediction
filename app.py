@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-app=Flask(__name__)
+app=Flask(__name__, template_folder='template')
 #load the model
 model=pickle.load(open('model.pkl', 'rb'))
 
