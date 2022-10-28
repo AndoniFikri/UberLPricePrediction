@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+body {
+    background-color: #F5F5F5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+.me-box{
+	background-color: #FFFFFF;
+	max-width: 800px;
+	padding: 20px;
+	margin: 10px auto;
+	border-radius: 10px;
+}
+
+.mini-box{
+	max-width: 300px;
+	margin: 10px auto;
+	padding: 20px;
+	background-color: #FFFFF;
+	color: #FFFFF;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+	text-align: center;
+	border: 10px;
+	justify-items: center;
+}
+.mini-box:hover{
+	background-color: #F5F5F5;
+}
+.mini-box img{
+	width: 70%;
+}
+
+.head-title{
+	text-align: center;
+	line-height: 10px;
+}
+
+.flet-decoration{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flet-decoration-between{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.btn-first{
+	background-color: #EE5B46;
+	color: #FFFFF;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+.btn-first:hover{
+	background-color: #C74E3D;
+	color: #FFFFF;
+}
+
+.btn-secound{
+	background-color: #FFFFFF;
+	color: #707070;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+.btn-secound:hover{
+	background-color: #EE5B46;
+	color: #FFFFF;
+}
+
+.btn-therd{
+	background-color: #033630;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+.btn-therd:hover{
+	background-color: #033630;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+.btn-radio{
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+	margin-top: 5px;
+	margin-right: 10px;
+}
+.btn-radio:hover{
+	background-color: #F1F1F1;
+}
+input[type="radio"].cek{
+	display: none;
+}
+input[type="radio"].cek:checked + label {
+  background-color: #EE5B46;
+  color: #FFFFFF;
+}
+
+.none-style{
+	text-decoration: none;
+	color: #707070;
+}
+
+.none-style:hover{
+	color: #707070;
+}
