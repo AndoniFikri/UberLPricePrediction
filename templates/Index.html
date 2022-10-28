@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linear Regression</title>
+
+	<!-- css bootsrap -->
+	<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.css">
+
+	<!-- css vanila -->
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+
+</head>
+<body>
+
+	<div class="me-box">
+		<div class="head-title">
+			<h1>Linear Regression</h1>
+			<h5>Hactiv8 Python For Data Science</h5>
+		</div>
+		<hr>
+		<div class="row mt-3">
+        
+		<form action="/predict" method="POST" >
+			<div class="col-sm-6">
+				<div class="mb-3">
+				  <label for="hour" class="form-label">Hour (0 - 23)</label>
+				  <input type="number" class="form-control" id="hour" placeholder="0 - 23" name="Hour (0 - 23)">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="mb-3">
+				  <label for="Month" class="form-label">Month (1 - 12)</label>
+				  <input type="number" class="form-control" id="Month" placeholder="1 - 12" name="Month (1 - 12)">
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<label class="mb-2">Cab Type</label>
+				<div class="flet-decoration mb-3">
+					<input type="radio" class="cek" name="cab_type" id='lyft' value='lyft'>
+					<label class="btn btn-radio" style="margin-right: 20px;" for="lyft"><img src="../static/image/lyft.png"> <b>Lyft</b></label>
+					<input type="radio" class="cek" name="cab_type" id="uber" value="uber">
+					<label class="btn btn-radio" for="uber"><img src="../static/image/uber.png"> <b>Uber</b></label>
+				</div>
+
+				<div class="mb-3">
+				  <label class="form-label">service_class</label>
+				  <div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=1 checked>
+					  <label class="form-check-label" for=1>
+					    1
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=2>
+					  <label class="form-check-label" for=2>
+					    2
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=3>
+					  <label class="form-check-label" for=3>
+					    3
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=4>
+					  <label class="form-check-label" for=4>
+					    4
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=5>
+					  <label class="form-check-label" for=5>
+					    5
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="service_class" value=6>
+					  <label class="form-check-label" for=6>
+					    6
+					  </label>
+					</div>
+
+
+				<label class="mb-2 mt-3">Weather</label>
+				<div class="flet-decoration mb-3">
+					<input type="radio" class="cek" name="Weather" id="rain" value="rain">
+					<label class="btn btn-radio" for="rain"><img src="../static/image/rain.png"> <b>Raining</b></label>
+					<input type="radio" class="cek" name="Weather" id="not-rain" value="not-rain" checked>
+					<label class="btn btn-radio" for="not-rain"><img src="../static/image/cloudy-day.png"> <b>Not Raining</b></label>
+				</div>
+
+				</div>
+
+			</div>
+			<div class="col-sm-6">
+				<div class="mb-3">
+				  <label for="day" class="form-label">Day Number (Range 1 - 7)</label>
+				  	<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="1" value="1">
+					  <label class="form-check-label" for="1">1</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="2" value="2">
+					  <label class="form-check-label" for="2">2</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="3" value="3">
+					  <label class="form-check-label" for="3">3</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="4" value="4">
+					  <label class="form-check-label" for="4">4</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="5" value="5">
+					  <label class="form-check-label" for="5">5</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="6" value="6">
+					  <label class="form-check-label" for="6">6</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="day" id="7" value="7">
+					  <label class="form-check-label" for="7">7</label>
+					</div>
+				</div>
+				<div class="mb-3">
+				  <label for="distance" class="form-label">Distance</label>
+				  <input type="number" class="form-control" id="distance" placeholder="mill" name="Distance">
+				</div>
+				<div class="mb-3">
+				  <label for="surge" class="form-label">Surge Multiplier</label> <br>
+				  	<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="Surge Multiplier" id="1" value="1">
+					  <label class="form-check-label" for="1">1</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="Surge Multiplier" id="2" value="2">
+					  <label class="form-check-label" for="2">2</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="Surge Multiplier" id="3" value="3">
+					  <label class="form-check-label" for="3">3</label>
+					</div>
+				</div>
+
+				<div class="mb-3">
+				  <label for="Is_Peak" class="form-label">Peak Time</label>
+				  	<div class="form-check form-switch">
+					  <input class="form-check-input" name="Peak Time" type="checkbox" role="switch" id="flexSwitchCheckChecked" value='Yes' checked>
+					  <label class="form-check-label" for="flexSwitchCheckChecked">Yes Or No</label>
+					</div>
+					<div class="form-group ">
+						<label for="Predict" class="col-form-label">Price:</label>
+					</div>
+					<div class="form-group">
+						<p  class="form-control"><b>{{Price}}</b></p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<hr>
+
+	    <button type="submit" class="btnRegister" value="Predict">Predict</button>
+		</div>
+	</div>
+
+
+<script src="../static/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
