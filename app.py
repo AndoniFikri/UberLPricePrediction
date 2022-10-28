@@ -12,7 +12,7 @@ model=pickle.load(open('model.pkl', 'rb'))
 @app.route('/')
 def home():
     result=''
-    return render_template('index.html')
+    return render_template('Index.html')
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
@@ -61,7 +61,7 @@ def predict():
 
     
     result=model.predict([[Hour, Month, cab, dist,  surge, rain, service, day,  peak]])
-    return render_template('index.html', Price= f'The Total Cab Price is ${round(result[0],2)}')
+    return render_template('Index.html', Price= f'The Total Cab Price is ${round(result[0],2)}')
 
 
 
